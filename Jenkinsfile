@@ -12,7 +12,8 @@ pipeline {
              		         	])
 
            			         println(userInput); 
-					
+					step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "harshalkolhe05@gmail.com, sendToIndividuals: true])
+    
        				              }		
    			             }
 
