@@ -27,7 +27,7 @@ pipeline {
 			    echo 'This will run only if successful'
 			}
 			failure {
-			    mail bcc: 'harshalkolhe05@gmail.com', to: "harshalkolhe05@gmail.com";
+			    mail to: "harshalkolhe05@gmail.com";
 			}
 
   		  }
