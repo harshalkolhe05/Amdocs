@@ -12,9 +12,8 @@ pipeline {
              		         	])
 
            			         println(userInput); 
-					 if (currentBuild.currentResult == 'FAILURE') {
-      				step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "harshalkolhe05@gmail.com, sendToIndividuals: true])
-    					}
+					step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "harshalkolhe05@gmail.com, sendToIndividuals: true])
+    				
        				              }		
    			             }
 
