@@ -15,10 +15,9 @@ pipeline {
 					
 					data = readFile(file: 'index.html')
                    				println(data)
-					def FullHTML = data
-					FullHTML += "<title>"
-					return FullHTML
-					println("Html data"+ FullHTML)
+					
+					data += "<title>"
+					println(data)
 					
 					
 					def data = userInput 
