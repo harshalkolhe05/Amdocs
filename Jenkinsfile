@@ -15,10 +15,7 @@ pipeline {
 				
        				              }		
    			             }
-
-	                                           }
-
-	     stage('write') {
+			 stage('write') {
            steps {
 		   script{
           
@@ -36,6 +33,10 @@ pipeline {
                }
            }
        }
+
+	                                           }
+
+	    
 	    
 	    
 	    
