@@ -13,26 +13,25 @@ pipeline {
 
            			         println(userInput); 
 				
-       				              }		
-   			             }
-			 stage('write') {
+       				              }	
            steps {
 		   script{
           
-                   def data = $userInput 
+                   def data = userInput 
 		       writeFile(file: 'index.html', text: data)
                    sh "ls -l"
                }
            }
-       }
-       stage('read') {
+       
            steps {
                script {
                    def data = readFile(file: 'index.html')
                    println(data)
                }
            }
-       }
+       
+   			             }
+			
 
 	                                           }
 
