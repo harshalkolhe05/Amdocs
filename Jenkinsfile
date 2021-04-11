@@ -22,8 +22,8 @@ pipeline {
            steps {
                script {
                    def date = new Date()
-                   def data = "Hello World\nSecond line\n" + date
-                   writeFile(file: 'index.html', text: data)
+                   def data = "Hello World" + date
+                   writeFile(file: 'index.html', html: data)
                    sh "ls -l"
                }
            }
