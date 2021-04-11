@@ -21,7 +21,7 @@ pipeline {
 	     stage('write') {
            steps {
                script {
-                   def data = "<Hello>" 
+                   def data = 'userInput' 
 		       writeFile(file: 'index.html', text: data)
                    sh "ls -l"
                }
