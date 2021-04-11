@@ -12,24 +12,15 @@ pipeline {
              		         	])
 
            			         println(userInput); 
+					
+					def data = userInput 
+					println(data)
+		      				 writeFile(file: 'index.html', text: data)
+                   			sh "ls -l"
+					  def data = readFile(file: 'index.html')
+                   				println(data)
 				
        				              }	
-           steps {
-		   script{
-          
-                   def data = userInput 
-		       writeFile(file: 'index.html', text: data)
-                   sh "ls -l"
-               }
-           }
-       
-           steps {
-               script {
-                   def data = readFile(file: 'index.html')
-                   println(data)
-               }
-           }
-       
    			             }
 			
 
