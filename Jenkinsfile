@@ -12,13 +12,21 @@ pipeline {
              		         	])
 
            			         println(userInput); 
+					
+					def data = userInput 
+					println(data)
+		      				 data = writeFile(file: 'index.html', text: data)
+                   			sh "ls -l"
+                      
+					  data = readFile(file: 'index.html')
+                   				println(data)
 				
-       				              }		
+       				              }	
    			             }
-
-	                                           }
+		}	    
 	    
-           }
+           }	
+	
 	post {
         always {
             echo 'This will always run'
