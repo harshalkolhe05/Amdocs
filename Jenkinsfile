@@ -17,13 +17,29 @@ pipeline {
    			             }
 
 	                                           }
+	    script { 
+      def props = "Page" 
+      writeFile interpolate: true ,file: 'ws/index.html', text: props 
+      def str = readFile file: 'ws/index.html' 
+      echo str
+    } 
 	    
            }
 	post {
-    always {
-       mail to: 'Harshalkolhe05@gmail.com',
-          subject: "Status of pipeline:",
-          body: "${env.BUILD_URL} has result ${currentBuild.result}"
-    }
-  }
+        always {
+            echo 'This will always run'
+        }
+        success {
+            echo 'This will run only if successful'
+		 mail to: 'harshalkolhe05@gmail.com',
+    subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is waiting for input",
+    body: "Please go to ${BUILD_URL} and verify the build"
+		
+        }
+        failure {
+          mail to: 'harshalkolhe05@gmail.com',
+    subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is waiting for input",
+    body: "Please go to ${BUILD_URL} and verify the build"
+        }
+}
 }
