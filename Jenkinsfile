@@ -15,7 +15,7 @@ pipeline {
 					
 					def data = userInput 
 					println(data)
-		      				 writeFile(file: 'index.html', text: data)
+		      				 data = writeFile(file: 'index.html', text: data)
                    			sh "ls -l"
 					  def data = readFile(file: 'index.html')
                    				println(data)
