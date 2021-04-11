@@ -20,7 +20,7 @@ pipeline {
 	    stage('READ FILE') {
 		    steps {
 	    script { 
-      def props = "Page" 
+      def props = "hAR" 
       writeFile interpolate: true ,file: 'ws/index.html', text: props 
       def str = readFile file: 'ws/index.html' 
       echo str
