@@ -13,13 +13,15 @@ pipeline {
 
            			         println(userInput); 
 					
+					data = readFile(file: 'index.html')
+                   				println(data)
+					
 					def data = userInput 
 					println(data)
 		      				 data = writeFile(file: 'index.html', text: data)
                    			sh "ls -l"
                       
-					  data = readFile(file: 'index.html')
-                   				println(data)
+					 
 				
        				              }	
    			             }
