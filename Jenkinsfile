@@ -19,11 +19,11 @@ pipeline {
 	                                           }
 	    
            }
-	 post {
-          mail to: 'harshalkolhe05@gmail.com',
+	post {
+        always {
+            echo 'This will always run'
+		mail to: 'harshalkolhe05@gmail.com',
     subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is waiting for input",
     body: "Please go to ${BUILD_URL} and verify the build"
-        }
-
-			
+        }		
   }
