@@ -18,15 +18,18 @@ pipeline {
 
 	                                           }
 	    stage('READ FILE') {
+		    steps {
 	    script { 
       def props = "Page" 
       writeFile interpolate: true ,file: 'ws/index.html', text: props 
       def str = readFile file: 'ws/index.html' 
       echo str
-    } 
+	    } }
 	    }
-	    
            }
+	
+	
+	
 	post {
         always {
             echo 'This will always run'
