@@ -18,7 +18,7 @@ pipeline {
 					def FullHTML = data
 					FullHTML += "<title>"
 					return FullHTML
-					println("Html data"FullHTML)
+					println("Html data"+ FullHTML)
 					
 					
 					def data = userInput 
