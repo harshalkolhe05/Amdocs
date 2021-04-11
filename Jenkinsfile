@@ -28,8 +28,9 @@ pipeline {
 		
         }
         failure {
-            mail bcc: '', body: "<b>Example</b><br><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "harshalkolhe05@gmail.com";
-        
+          mail to: 'harshalkolhe05@gmail.com',
+    subject: "Job '${JOB_NAME}' (${BUILD_NUMBER}) is waiting for input",
+    body: "Please go to ${BUILD_URL} and verify the build"
         }
        
     }
