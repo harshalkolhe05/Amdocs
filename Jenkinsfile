@@ -17,15 +17,29 @@ pipeline {
    			             }
 
 	                                           }
-	    stage('READ FILE') {
-		    steps {
-	    script { 
-      def props = "hAR" 
-      writeFile interpolate: true ,file: 'ws/index.html', text: props 
-      def str = readFile file: 'ws/index.html' 
-      echo str
-	    } }
-	    }
+
+	     stage('write') {
+           steps {
+               script {
+                   def date = new Date()
+                   def data = "Hello World\nSecond line\n" + date
+                   writeFile(file: 'index.html', text: data)
+                   sh "ls -l"
+               }
+           }
+       }
+       stage('read') {
+           steps {
+               script {
+                   def data = readFile(file: 'index.html')
+                   println(data)
+               }
+           }
+       }
+	    
+	    
+	    
+	    
            }
 	
 	
