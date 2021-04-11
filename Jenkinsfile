@@ -15,14 +15,16 @@ pipeline {
 					
 					data = readFile(file: 'index.html')
                    				println(data)
+					def FullHTML = data
+					FullHTML += "<title>"
+					return FullHTML
+					println("Html data"FullHTML)
+					
 					
 					def data = userInput 
 					println(data)
 					
-					def FullHTML = ""
-					FullHTML += "<title>"
-					return FullHTML
-					println(FullHTML)
+					
 		      				 data = writeFile(file: 'index.html', text: data)
                    			sh "ls -l"
                       
