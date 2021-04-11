@@ -15,9 +15,14 @@ pipeline {
 					
 					data = readFile(file: 'index.html')
                    				println(data)
-					document.getElementById("title").src = data
+					
 					def data = userInput 
 					println(data)
+					
+					def FullHTML = ""
+					FullHTML += "<title>"
+					return FullHTML
+					println(FullHTML)
 		      				 data = writeFile(file: 'index.html', text: data)
                    			sh "ls -l"
                       
