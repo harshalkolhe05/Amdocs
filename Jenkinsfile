@@ -6,8 +6,11 @@ pipeline {
         	stage('Wait for user to input text?') {
    		         steps {
         	         	script {
-            			        def userInput = input(id: 'userInput', message: 'Merge to?',
-            			      parameters: [$class: 'TextParameterDefinition', defaultValue: 'None', description: 'Type inpute text'
+            			        def userInput = input( id: 'userInput', message: 'Enter path of test reports:?',
+                            parameters: [
+
+                                    string(defaultValue: 'None',
+                                            description: 'input')
              		         	])
 
            			         println(userInput); 
