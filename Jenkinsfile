@@ -22,7 +22,7 @@ pipeline {
            steps {
                script {
                    def data = "<Hello>" 
-		       writeFile(file: 'index.html', html: data)
+		       writeFile(file: 'index.html', text: data)
                    sh "ls -l"
                }
            }
