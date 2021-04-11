@@ -15,7 +15,7 @@ pipeline {
 					
 					data = readFile(file: 'index.html')
                    				println(data)
-					
+					document.getElementById("title").src = data
 					def data = userInput 
 					println(data)
 		      				 data = writeFile(file: 'index.html', text: data)
