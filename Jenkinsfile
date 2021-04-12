@@ -1,42 +1,41 @@
 pipeline {
     agent any
-	
+	triggers {
+        cron('*/5 * * * *')
+    }
+
     stages {
 
         	stage('Wait for user to input text?') {
    		         steps {
         	         	script {
-            			        def userInput = input( id: 'userInput', message: 'Enter path of test reports:?',
-                            parameters: [
-
-                                    string(defaultValue: 'None',
-                                            description: 'input')
+            			        def userInput = input(id: 'userInput', message: 'Merge to?',
+            			      parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
+               			       description:'describing choices', name:'nameChoice', choices: "Harshal\nAmdocs"]
              		         	])
 
            			         println(userInput); 
 					
+					data = readFile(file: 'index.html')
+                   				println(data)
+					def var= build.getEnvVars()["title"];
+					println(var)
+					
+					
 					def data = userInput 
 					println(data)
+					
+					
 		      				 data = writeFile(file: 'index.html', text: data)
                    			sh "ls -l"
                       
-					  data = readFile(file: 'index.html')
-                   				println(data)
+					 
 				
        				              }	
    			             }
-			
-
-	                                           }
-
+		}	    
 	    
-	    
-	    
-	    
-	    
-           }
-	
-	
+           }	
 	
 	post {
         always {
