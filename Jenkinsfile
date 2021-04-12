@@ -16,8 +16,7 @@ pipeline {
 					
 					data = readFile(file: 'index.html')
                    				println(data)
-					def var= build.getEnvVars()["title"];
-					println(var)
+					
 					
 					
 					def data = userInput 
